@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Caesar Cipher Encryption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Caesar Cipher Encryption</h1>
+    <form method="POST" action="/encrypt">
+        <input type="text" name="kelime" placeholder="Enter text to encrypt" required>
+        <input type="number" name="key" placeholder="Enter key (1-25)" min="1" max="25" required>
+        <input type="submit" value="Encrypt">
+    </form>
+    {% if original_text %}
+    <div class="result">
+        <p><strong>Original text:</strong> {{ original_text }}</p>
+        <p><strong>Encrypted text:</strong> {{ encrypted_text }}</p>
+    </div>
+    {% endif %}
+    <a href="/" class="back-button">Back to Main Page</a>
+</body>
+</html> 
