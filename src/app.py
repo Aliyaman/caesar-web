@@ -3,9 +3,12 @@ from string import ascii_letters
 import os
 
 # Set the template and static folder paths
-template_dir = os.path.dirname(os.path.abspath(__file__))
-app = Flask(__name__, template_folder=template_dir)
+template_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Changed this line
+app = Flask(__name__, 
+           template_folder=template_dir,
+           static_folder=os.path.join(template_dir, 'static'))  # Added static_folder
 
+# Rest of the code stays the same
 def caesar_encrypt(kelime, key):
     enc_msg = []
     for harf in kelime:
