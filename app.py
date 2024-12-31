@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
 from string import ascii_letters
+import os
 
-app = Flask(__name__)
+# Set the template and static folder paths
+template_dir = os.path.dirname(os.path.abspath(__file__))
+app = Flask(__name__, template_folder=template_dir)
 
 def caesar_encrypt(kelime, key):
     enc_msg = []
@@ -16,7 +19,6 @@ def brute_force(kelime):
     results = []
     enc_msg = list(kelime)
     
-    # Replace 'i' with 't' as in original code
     for idx, b in enumerate(enc_msg):
         if b == "i":
             enc_msg[idx] = "t"
